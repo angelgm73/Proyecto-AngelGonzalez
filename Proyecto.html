@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Excusas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .excusa {
+            font-size: 18px;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            min-height: 60px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Generador de Excusas</h1>
+        <div id="excusa" class="excusa">
+            Presiona el botón para generar una excusa
+        </div>
+        <button id="generate">¡Generar Excusa!</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const excuses = [
+                "Mi perro se comió mi tarea.",
+                "Había mucho tráfico en el camino.",
+                "Mi despertador no sonó esta mañana.",
+                "Se fue la luz en mi casa y no pude cargar mi teléfono.",
+                "Tuve que ayudar a un anciano a cruzar la calle.",
+                "Mi impresora se quedó sin tinta justo cuando iba a imprimir.",
+                "Mi auto no arrancó y tuve que venir caminando.",
+                "Estaba tan concentrado trabajando que perdí la noción del tiempo.",
+                "Hubo un apagón en mi zona y perdí todo mi trabajo.",
+                "Mi vecino tuvo una emergencia y tuve que ayudarlo.",
+                "Mi GPS me dio direcciones equivocadas.",
+                "Me quedé atrapado en el elevador por 30 minutos.",
+                "Mi hermano menor borró accidentalmente mi archivo.",
+                "Se activó la alarma contra incendios en mi edificio.",
+                "Mi gato caminó sobre mi teclado y envió todo a la papelera."
+            ];
+
+            const generateButton = document.getElementById('generate');
+            const excuseDisplay = document.getElementById('excusa');
+
+            generateButton.addEventListener('click', function () {
+                const randomIndex = Math.floor(Math.random() * excuses.length);
+                excuseDisplay.textContent = excuses[randomIndex];
+
+
+                excuseDisplay.style.opacity = 0;
+                setTimeout(() => {
+                    excuseDisplay.style.opacity = 1;
+                }, 200);
+            });
+
+            excuseDisplay.style.transition = "opacity 0.2s ease-in-out";
+        });
+    </script>
+</body>
+
+</html>
